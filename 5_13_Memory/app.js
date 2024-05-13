@@ -50,6 +50,8 @@ const cards = [
 ];
 
 document.addEventListener("DOMContentLoaded",() => {
+    let cardsChosen = []
+    let cardsChosenId = []
     cards.sort(() => 0.5 - Math.random());
     const grid = document.querySelector(".grid");
     function createBoard(){
@@ -63,7 +65,12 @@ document.addEventListener("DOMContentLoaded",() => {
     }
     function flipCard(){
         let cardId = this.getAttribute("data-id");
+        cardsChosen.push(cards[cardId].name);
+        cardsChosenId.push(cardId);
         this.setAttribute("src",cards[cardId].img);
+        if(cardsChosen.length === 2){
+            setTimeout(checkForMatch,500);
+        }
     }
     createBoard();
 });
