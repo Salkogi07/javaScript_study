@@ -46,14 +46,6 @@ const cards = [
     {
         name: '6',
         img: 'image/d_6.png'
-    },
-    {
-        name: 'back',
-        img: 'image/hidden_card.png'
-    },
-    {
-        name: 'white',
-        img: 'image/white_card.png'
     }
 ];
 
@@ -63,10 +55,15 @@ document.addEventListener("DOMContentLoaded",() => {
     function createBoard(){
         for(let i = 0; i < cards.length; i++){
             const card = document.createElement("img");
-            card.setAttribute("src",cards[i].img);
+            card.setAttribute("src","image/hidden_card.png");
             card.setAttribute("data-id",i);
+            card.addEventListener("click",flipCard);
             grid.appendChild(card);
         }
+    }
+    function flipCard(){
+        let cardId = this.getAttribute("data-id");
+        this.setAttribute("src",cards[cardId].img);
     }
     createBoard();
 });
