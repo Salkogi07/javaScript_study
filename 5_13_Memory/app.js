@@ -1,51 +1,51 @@
 const cards = [
     {
         name: '1',
-        img: 'image/다이아몬드_A.png'
+        img: 'image/d_1.png'
     },
     {
         name: '2',
-        img: 'image/다이아몬드_2.png'
+        img: 'image/d_2.png'
     },
     {
         name: '3',
-        img: 'image/다이아몬드_3.png'
+        img: 'image/d_3.png'
     },
     {
         name: '4',
-        img: 'image/다이아몬드_4.png'
+        img: 'image/d_4.png'
     },
     {
         name: '5',
-        img: 'image/다이아몬드_5.png'
+        img: 'image/d_5.png'
     },
     {
         name: '6',
-        img: 'image/다이아몬드_6.png'
+        img: 'image/d_6.png'
     },
     {
         name: '1',
-        img: 'image/다이아몬드_A.png'
+        img: 'image/d_1.png'
     },
     {
         name: '2',
-        img: 'image/다이아몬드_2.png'
+        img: 'image/d_2.png'
     },
     {
         name: '3',
-        img: 'image/다이아몬드_3.png'
+        img: 'image/d_3.png'
     },
     {
         name: '4',
-        img: 'image/다이아몬드_4.png'
+        img: 'image/d_4.png'
     },
     {
         name: '5',
-        img: 'image/다이아몬드_5.png'
+        img: 'image/d_5.png'
     },
     {
         name: '6',
-        img: 'image/다이아몬드_6.png'
+        img: 'image/d_6.png'
     },
     {
         name: 'back',
@@ -55,7 +55,7 @@ const cards = [
         name: 'white',
         img: 'image/white_card.png'
     }
-]
+];
 
 document.addEventListener("DOMContentLoaded",() => {
     cards.sort(() => 0.5 - Math.random());
@@ -68,4 +68,5 @@ document.addEventListener("DOMContentLoaded",() => {
             grid.appendChild(card);
         }
     }
-})
+    createBoard();
+});
