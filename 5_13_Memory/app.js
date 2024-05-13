@@ -72,5 +72,15 @@ document.addEventListener("DOMContentLoaded",() => {
             setTimeout(checkForMatch,500);
         }
     }
+
+    function checkForMatch(){
+        const cards = document.querySelectorAll("img");
+        const optionOneId = cardsChosenId[0];
+        const optionTwoId = cardsChosenId[1];
+        cards[optionOneId].setAttribute("src","image/hidden_card.png");
+        cards[optionTwoId].setAttribute("src","image/hidden_card.png");
+        cardsChosen = [];
+        cardsChosenId = [];
+    }
     createBoard();
 });
