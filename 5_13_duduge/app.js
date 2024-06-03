@@ -11,7 +11,6 @@ for (let i=0; i<9; i++){
 }
 
 const squares = document.querySelectorAll(".square");
-squares[0].classList.add("mole");
 
 randomSquare();
 
