@@ -2,6 +2,7 @@ const timeLeft = document.querySelector("#time-left");
 const score = document.querySelector("#score");
 const grid = document.querySelector(".grid");
 const mole = document.querySelector(".mole");
+
 var squares;
 let result = 0;
 let targetPosition = null;
