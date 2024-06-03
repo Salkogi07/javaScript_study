@@ -43,3 +43,17 @@ for(let i=0; i < 9; i++){
         }
     })
 }
+
+function countdown(){
+    currentTime--;
+    timeLeft.textContent = currentTime;
+
+    if(currentTime == 0){
+        clearInterval(timer);
+        clearInterval(countdownTimer);
+        alert("Game over score : "+result);
+
+    }
+}
+
+countdownTimer = setInterval(countdown,500);
