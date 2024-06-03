@@ -11,3 +11,8 @@
     width: 100px;
     border: solid black 1px;
 }
+
+.mole{
+    background-image: url("img/du.png");
+    background-size: cover;
+}
