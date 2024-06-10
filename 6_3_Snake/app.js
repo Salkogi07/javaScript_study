@@ -74,7 +74,7 @@ function move(e){
 function makeApple(){
     do{
         appleLoc = Math.floor(Math.random() * squares.length);
-    }while(squares[appleLoc].classList.contains("apple"));
+    }while(squares[appleLoc].classList.contains("snake"));
     squares[appleLoc].classList.add("apple");
 }
 document.addEventListener("keyup",move);
