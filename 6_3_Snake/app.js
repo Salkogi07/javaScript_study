@@ -22,7 +22,21 @@ function start(){
         squares[item].classList.add("snake");
     });
     makeApple();
+    scoreDisplay.innerText = socore;
     interval = setInterval(runGame,intervalTime);
+}
+function stop(){
+    snake.forEach(function(item){
+        squares[item].classList.remove("snake");
+    });
+    squares[appleLoc].classList.remove("apple");
+    clearInterval(interval);
+    socore = 0;
+    intervalTime = 1000;
+    snake = [2,1,0];
+    dir = 1;
+    appleLoc = 0;
+    socore = 0;
 }
 function runGame(){
     snake.unshift(snake[0]+dir);
@@ -33,6 +47,7 @@ function runGame(){
         squares[snake[0]].classList.remove("apple");
         squares[snake[0]].classList.add("snake");
         makeApple();
+        scoreDisplay.innerText = ++socore;
     }
     else{
         const tail = snake.pop();
@@ -52,3 +67,4 @@ function makeApple(){
 }
 document.addEventListener("keyup",move);
 startBtn.addEventListener("click",start);
+stopBtn.addEventListener("click",stop);
