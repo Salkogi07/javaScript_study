@@ -18,6 +18,7 @@ let appleLoc = 0;
 let socore = 0;
 
 function start(){
+    stop();
     snake.forEach(function(item){
         squares[item].classList.add("snake");
     });
@@ -39,6 +40,15 @@ function stop(){
     socore = 0;
 }
 function runGame(){
+    if((snake[0]%width === width-1 && dir === 1) || 
+    (snake[0]%width === 0 && dir === -1) ||
+    (snake[0]+width >= width*width && dir === width) ||
+    (snake[0]-width < 0 && dir === -width) ||
+    (squares[snake[0]+dir].classList.contains("snake"))
+    ){
+        clearInterval(interval);
+        return;
+    }
     snake.unshift(snake[0]+dir);
     if(squares[snake[0]].classList.contains("apple")){
         intervalTime = intervalTime * 0.9;
@@ -62,7 +72,9 @@ function move(e){
     else if(e.keyCode === 40){dir = width}
 }
 function makeApple(){
-    appleLoc = Math.floor(Math.random() * squares.length);
+    do{
+        appleLoc = Math.floor(Math.random() * squares.length);
+    }while(squares[appleLoc].classList.contains("apple"));
     squares[appleLoc].classList.add("apple");
 }
 document.addEventListener("keyup",move);
