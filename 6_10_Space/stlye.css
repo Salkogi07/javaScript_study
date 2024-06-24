@@ -28,11 +28,11 @@ body{
 
 .grid{
     display: grid;
-    grid-template-columns: repeat(15,30px);
-    grid-template-rows: repeat(15,30px);
+    grid-template-columns: repeat(15, 30px);
+    grid-template-rows: repeat(15, 30px);
     width: 450px;
     height: 450px;
-    border: 1px black;
+    border: 1px solid black;
 }
 
 .player {
