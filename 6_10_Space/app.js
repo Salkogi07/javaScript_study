@@ -17,7 +17,10 @@ let invadersLoc = [
     15,16,17,18,19,20,21,22,23,24,
     30,31,32,33,34,35,36,37,38,39
 ];
+
 let gameInterval;
+let bulletId;
+let bulletLoc = playerLoc;
 
 function makePlayer(){
     stage[playerLoc].classList.add("player");
@@ -70,9 +73,10 @@ function gameStart(){
     stage[playerLoc].classList.remove("player");
     invadersLoc.forEach(function(invader){
         stage[invader].classList.remove("invader");
+        display.innerText = "";
     });
     playerLoc = stageSize*(stageSize-2)+7;
-    let invadersLoc = [
+    invadersLoc = [
         0,1,2,3,4,5,6,7,8,9,
         15,16,17,18,19,20,21,22,23,24,
         30,31,32,33,34,35,36,37,38,39
@@ -98,6 +102,34 @@ function displayStatus(){
     display.innerText = invadersLoc.length + "/" + invadersLoc.length;
 }
 
+function moveBullet(){
+    stage[bulletLoc].classList.remove("bullet");
+    bulletLoc -= stageSize;
+    stage[bulletLoc].classList.add("bullet");
+}
+
+function shoot(e){
+    let id;
+    let bulletLoc = playerLoc;
+    function moveBullet(){
+        stage[bulletLoc].classList.remove("bullet");
+        bulletLoc -= stageSize;
+        if(bulletLoc < 0){
+            clearInterval(id);
+            return;
+        }
+        stage[bulletLoc].classList.add("bullet");
+        if (stage[bulletLoc].classList.contains("invader")){
+            stage[bulletLoc].classList.remove("invader");
+            stage[bulletLoc].classList.remove("bullet");
+            stage[bulletLoc].classList.add("boom");
+        }
+    }
+    if(e.key == "b"){
+        id = setInterval(moveBullet,100);
+    }
+}
+
 startBtn.addEventListener("click",gameStart);
 stopBtn.addEventListener("click",gameStop);
-
+document.addEventListener("keydown",shoot);
